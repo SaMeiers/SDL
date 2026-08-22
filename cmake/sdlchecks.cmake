@@ -654,6 +654,20 @@ endmacro()
 
 # Requires:
 # - n/a
+macro(CheckMali)
+  if(SDL_MALI)
+    set(HAVE_MALI TRUE)
+    set(HAVE_SDL_VIDEO TRUE)
+
+    sdl_glob_sources("${SDL3_SOURCE_DIR}/src/video/mali/*.c")
+    set(SDL_VIDEO_DRIVER_MALI 1)
+    # No link dependency: SDL loads libEGL at run time, and the Mali headers
+    # are not present on a cross-build host anyway.
+  endif()
+endmacro()
+
+# Requires:
+# - n/a
 macro(CheckVivante)
   if(SDL_VIVANTE)
     check_c_source_compiles("

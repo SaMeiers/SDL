@@ -122,6 +122,9 @@ static VideoBootStrap *bootstrap[] = {
 #ifdef SDL_VIDEO_DRIVER_KMSDRM
     &KMSDRM_bootstrap,
 #endif
+#ifdef SDL_VIDEO_DRIVER_MALI
+    &MALI_bootstrap,
+#endif
 #ifdef SDL_VIDEO_DRIVER_RISCOS
     &RISCOS_bootstrap,
 #endif
